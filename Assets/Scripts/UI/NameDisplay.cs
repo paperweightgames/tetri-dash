@@ -10,7 +10,7 @@ namespace UI
     {
         [SerializeField] private GameObject _textPrefab;
         [SerializeField] private PlayerManager _playerManager;
-        [SerializeField] private NameFormatter _nameFormatter;
+        [SerializeField] private KeyNameObject _keyNameObject;
         private readonly List<Text> _textList = new List<Text>();
 
         private void OnEnable()
@@ -37,7 +37,7 @@ namespace UI
                 _textList.Add(textComponent);
                 // Set the text to the controls.
                 var playerMovement = player.GetComponent<PlayerMovement>();
-                var playerName = _nameFormatter.FormatName(playerMovement.GetKeys());
+                var playerName = _keyNameObject.FormatKeys(playerMovement.GetKeys());
                 textComponent.text = playerName;
                 // Set the text colour to the player colour.
                 var playerColour = player.GetComponent<PlayerColour>();

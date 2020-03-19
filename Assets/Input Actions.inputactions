@@ -170,14 +170,6 @@
             "id": "2fc95be9-fe16-4253-a617-bd3a225a3b21",
             "actions": [
                 {
-                    "name": "Reset",
-                    "type": "Button",
-                    "id": "a2d3e335-b2ad-4c99-85e4-36ba7e55092c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Pause",
                     "type": "Button",
                     "id": "0dec3b5c-c09d-456c-a9bc-998dcff74570",
@@ -197,19 +189,8 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "b63a9293-f061-4d17-8f0d-8737298519e6",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Reset",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b5e32e50-7a59-4369-844e-6be735cd5d6a",
-                    "path": "<Keyboard>/p",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace KeySubstitution
@@ -8,7 +9,7 @@ namespace KeySubstitution
     {
         [SerializeField] private KeyName[] _keyNames;
 
-        public string CheckKey(Key key)
+        public string FormatKey(Key key)
         {
             foreach (var keyName in _keyNames)
             {
@@ -19,6 +20,16 @@ namespace KeySubstitution
             }
 
             return key.ToString();
+        }
+
+        public string FormatKeys(IEnumerable<Key> keys)
+        {
+            var output = "";
+            foreach (var key in keys)
+            {
+                output += FormatKey(key);
+            }
+            return output;
         }
     }
 }
