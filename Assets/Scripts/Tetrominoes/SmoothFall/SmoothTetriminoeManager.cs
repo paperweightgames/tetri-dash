@@ -39,7 +39,6 @@ namespace Tetrominoes.SmoothFall
                 // Don't spawn if too far ahead.
                 var distance = Mathf.Abs(_highestTetriminoe.position.y - _cameraTransform.position.y);
                 if (distance > _maxDistance) return;
-                print("Spawning");
                 // Spawn the tetriminoe.
                 _timeSinceSpawn = 0;
                 SpawnTetriminoe();
