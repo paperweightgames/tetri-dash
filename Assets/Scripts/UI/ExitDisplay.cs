@@ -14,18 +14,5 @@ namespace UI
                 Application.Quit();
             #endif
         }
-
-        private void Awake()
-        {
-            #if UNITY_IOS
-                Destroy(gameObject);
-            #endif
-            #if UNITY_ANDROID
-                Destroy(gameObject);
-            #endif
-            #if UNITY_WEBGL
-                Destroy(gameObject);
-            #endif
-        }
     }
 }

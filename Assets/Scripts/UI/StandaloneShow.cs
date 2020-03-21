@@ -2,7 +2,7 @@
 
 namespace UI
 {
-    public class HidePixelScale : MonoBehaviour
+    public class StandaloneShow : MonoBehaviour
     {
         private void Awake()
         {
