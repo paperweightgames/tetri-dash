@@ -4,7 +4,7 @@ namespace Player
 {
     public class PlayerScore : MonoBehaviour
     {
-        [SerializeField] private float _offset;
+        [SerializeField] private int _offset;
         private float _currentHeight = float.NegativeInfinity;
         private float _highHeight = float.NegativeInfinity;
 
@@ -15,11 +15,11 @@ namespace Player
 
         public int GetHighScore()
         {
-            return Mathf.RoundToInt(_highHeight * 0.8f);
+            return Mathf.RoundToInt(_highHeight / 0.8f) + _offset;
         }
         private void Update()
         {
-            _currentHeight = transform.position.y + _offset;
+            _currentHeight = transform.position.y;
             
             if (_currentHeight > _highHeight)
             {

@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class VolumeDisplay : MonoBehaviour
+    public class ValueDisplay : MonoBehaviour
     {
         [SerializeField] private string _key;
-        [SerializeField] private int _maxValue = 10;
+        [SerializeField] private Vector2Int _range;
         [SerializeField] private int _defaultValue = 10;
         [SerializeField] private Text _valueText;
         private int _value;
@@ -15,6 +16,7 @@ namespace UI
         {
             LoadValue();
             ChangeValue(0);
+            SaveValue();
         }
 
         private void LoadValue()
@@ -36,7 +38,7 @@ namespace UI
         public void ChangeValue(int amount)
         {
             _value += amount;
-            _value = Mathf.Clamp(_value, 0, _maxValue);
+            _value = Mathf.Clamp(_value, _range.x, _range.y);
             _valueText.text = _value.ToString();
         }
     }

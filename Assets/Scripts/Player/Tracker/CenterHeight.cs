@@ -31,10 +31,8 @@ public class CenterHeight : MonoBehaviour
             targetPosition = Vector3.Lerp(targetPosition, playerPosition, 0.5f);
         }
 
-        if (_minimumHeight.position.y > targetPosition.y)
-        {
-            targetPosition.y = _minimumHeight.position.y;
-        }
+        targetPosition.y = Mathf.Max(targetPosition.y, _minimumHeight.position.y);
+
         transform.position = targetPosition;
     }
 }

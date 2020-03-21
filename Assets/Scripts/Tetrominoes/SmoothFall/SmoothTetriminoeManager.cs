@@ -9,7 +9,8 @@ namespace Tetrominoes.SmoothFall
         [SerializeField] private float _spawnInterval = 1;
         [SerializeField] private Vector3 _fallVelocity;
         [SerializeField] private int _moveAttempts = 2;
-        [SerializeField] private Vector2Int _spawnSpread;
+        [SerializeField] private Vector2Int _xSpread;
+        [SerializeField] private Vector2Int _ySpread;
         [SerializeField] private TetriminoePalette _tetriminoePalette;
         [SerializeField] private Vector3 _highestTetriminoe;
         [SerializeField] private SmoothFall _smoothFall;
@@ -55,7 +56,11 @@ namespace Tetrominoes.SmoothFall
             {
                 if (IsTetriminoeClear(newTetriminoe))
                 {
-                    _highestTetriminoe = newTetriminoe.transform.position;
+                    // Set new tetromino as highest.
+                    if (newTetriminoe.transform.position.y > _highestTetriminoe.y)
+                    {
+                        _highestTetriminoe = newTetriminoe.transform.position;
+                    }
                     return;
                 }
                 newTetriminoe.transform.position = GetRandomSpawnPosition();
@@ -67,8 +72,8 @@ namespace Tetrominoes.SmoothFall
 
         private Vector2 GetRandomSpawnPosition()
         {
-            var randomX = Random.Range(-_spawnSpread.x, _spawnSpread.x + 1);
-            var randomY = Random.Range(0, _spawnSpread.y);
+            var randomX = Random.Range(_xSpread.x, _xSpread.y);
+            var randomY = Random.Range(_ySpread.x, _ySpread.y);
             var cellSize = _grid.cellSize;
             var randomPosition = new Vector2(randomX, randomY) * cellSize;
             var offsetPosition = Vector3.up * _highestTetriminoe.y;

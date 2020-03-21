@@ -26,7 +26,7 @@ namespace UI
                     averageTime = Mathf.Lerp(averageTime, _deltaTimes[i], .5f);
                 }
                 var fps = Mathf.RoundToInt(1 / averageTime);
-                _text.text = $"fps: {fps}";
+                _text.text = $"fps: {fps:000}";
                 _timeSinceUpdate = 0;
                 _deltaTimes.Clear();
             }
