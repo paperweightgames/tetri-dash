@@ -13,6 +13,7 @@ namespace Utility
         private void Awake()
         {
             _pauseAction.action.performed += TogglePause;
+            SetPause(false);
         }
 
         private void OnEnable()

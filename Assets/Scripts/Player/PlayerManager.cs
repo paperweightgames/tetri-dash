@@ -14,6 +14,11 @@ namespace Player
             return _players.Count;
         }
 
+        public int GetMaxCount()
+        {
+            return _playerColours.Length;
+        }
+
         public List<GameObject> GetPlayers()
         {
             return _players;

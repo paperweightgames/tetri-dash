@@ -7,13 +7,15 @@ namespace Tetrominoes.SmoothFall
     public class SmoothTetriminoeManager : MonoBehaviour
     {
         [SerializeField] private float _spawnInterval = 1;
-        [SerializeField] private Vector3 _fallVelocity;
+        [SerializeField] private float _fallVelocity;
+        [SerializeField] private float _maxDistance;
         [SerializeField] private int _moveAttempts = 2;
         [SerializeField] private Vector2Int _xSpread;
         [SerializeField] private Vector2Int _ySpread;
         [SerializeField] private TetriminoePalette _tetriminoePalette;
-        [SerializeField] private Vector3 _highestTetriminoe;
         [SerializeField] private SmoothFall _smoothFall;
+        [SerializeField] private Transform _cameraTransform;
+        [SerializeField] private Transform _highestTetriminoe;
         private readonly List<Collider2D> _results = new List<Collider2D>();
         private readonly ContactFilter2D _contactFilter = new ContactFilter2D();
         private Grid _grid;
@@ -34,6 +36,11 @@ namespace Tetrominoes.SmoothFall
         {
             if (_timeSinceSpawn >= _spawnInterval)
             {
+                // Don't spawn if too far ahead.
+                var distance = Mathf.Abs(_highestTetriminoe.position.y - _cameraTransform.position.y);
+                if (distance > _maxDistance) return;
+                print("Spawning");
+                // Spawn the tetriminoe.
                 _timeSinceSpawn = 0;
                 SpawnTetriminoe();
             }
@@ -57,9 +64,10 @@ namespace Tetrominoes.SmoothFall
                 if (IsTetriminoeClear(newTetriminoe))
                 {
                     // Set new tetromino as highest.
-                    if (newTetriminoe.transform.position.y > _highestTetriminoe.y)
+                    if (newTetriminoe.transform.position.y > _highestTetriminoe.position.y)
                     {
-                        _highestTetriminoe = newTetriminoe.transform.position;
+                        var newPosition = Vector3.up * newTetriminoe.transform.position.y;
+                        _highestTetriminoe.position = newPosition;
                     }
                     return;
                 }
@@ -76,7 +84,7 @@ namespace Tetrominoes.SmoothFall
             var randomY = Random.Range(_ySpread.x, _ySpread.y);
             var cellSize = _grid.cellSize;
             var randomPosition = new Vector2(randomX, randomY) * cellSize;
-            var offsetPosition = Vector3.up * _highestTetriminoe.y;
+            var offsetPosition = Vector3.up * _highestTetriminoe.position.y;
             var roundedYPosition = Mathf.Round(offsetPosition.y / cellSize.y) * _grid.cellSize.y;
             randomPosition += new Vector2(offsetPosition.x, roundedYPosition);
             return randomPosition;
