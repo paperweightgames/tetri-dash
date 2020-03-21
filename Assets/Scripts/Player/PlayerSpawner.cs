@@ -15,6 +15,7 @@ namespace Player
         [SerializeField] private Key[] _controls = new Key[4];
         [SerializeField] private InputDisplay _inputDisplay;
         [SerializeField] private NameDisplay _nameDisplay;
+        private int _playerCount;
         private int _currentKey;
         private PlayerMovement _activePlayerMovement;
         private PlayerManager _playerManager;
@@ -26,6 +27,8 @@ namespace Player
 
         private void Update()
         {
+            // Don't run if max number of players reached.
+            if (_playerCount >= _playerManager.GetMaxCount()) return;
             // Skip if no key was pressed.
             if (!Keyboard.current.anyKey.wasPressedThisFrame) return;
             var pressedKey = GetPressedKey();
@@ -52,6 +55,7 @@ namespace Player
                     // Clean up after the player.
                     _activePlayerMovement = null;
                     _controls = new Key[4];
+                    _playerCount++;
                     break;
             }
             _inputDisplay.AdvancePrompt();

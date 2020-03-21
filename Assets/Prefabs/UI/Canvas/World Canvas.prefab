@@ -1138,6 +1138,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: World Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5733815267144204606, guid: faaeb1dd80c3db8419331e85b256038b,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733815267144204606, guid: faaeb1dd80c3db8419331e85b256038b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -100
+      objectReference: {fileID: 0}
     - target: {fileID: 5733815267144204607, guid: faaeb1dd80c3db8419331e85b256038b,
         type: 3}
       propertyPath: m_LocalPosition.x

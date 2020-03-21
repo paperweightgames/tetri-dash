@@ -11,9 +11,9 @@ namespace Tetrominoes.SmoothFall
             _rb = GetComponent<Rigidbody2D>();
         }
 
-        public void SetVelocity(Vector3 newVelocity)
+        public void SetVelocity(float yVelocity)
         {
-            _rb.velocity = newVelocity;
+            _rb.velocity = Vector2.up * yVelocity;
         }
     }
 }

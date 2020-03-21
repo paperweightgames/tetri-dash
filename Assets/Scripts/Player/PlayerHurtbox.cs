@@ -11,8 +11,12 @@ namespace Player
             // Check for player.
             if (!other.CompareTag("Player")) return;
             if (other.isTrigger) return;
+            // Hurt the player and reset his position.
             other.GetComponent<PlayerHealth>().ChangeHealth(-_damage);
-            other.transform.position = _center.position;
+            var newPosition = _center.position;
+            var playerT = other.transform;
+            newPosition.z = playerT.position.z;
+            playerT.position = newPosition;
         }
     }
 }
