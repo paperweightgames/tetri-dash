@@ -53,7 +53,7 @@ namespace Tetrominoes.SmoothFall
         {
             // Choose a new tetriminoe to spawn.
             var tetriminoes = _tetriminoePalette.GetTetriminoes();
-            var randomTetriminoeIndex = Random.Range(1, tetriminoes.Length);
+            var randomTetriminoeIndex = Random.Range(0, tetriminoes.Length);
             var randomTetriminoe = tetriminoes[randomTetriminoeIndex];
             // Create a new tetriminoe.
             var newTetriminoe = Instantiate(randomTetriminoe, GetRandomSpawnPosition(), Quaternion.identity, _smoothFall.transform);
