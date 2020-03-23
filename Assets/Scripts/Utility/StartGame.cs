@@ -15,6 +15,7 @@ namespace Utility
         [SerializeField] private GameObject _worldCanvas;
         [SerializeField] private PlayerSpawner _playerSpawner;
         [SerializeField] private Behaviour[] _behavioursToEnable;
+        [SerializeField] private PlayerManager _playerManager;
 
         private void OnEnable()
         {
@@ -38,6 +39,8 @@ namespace Utility
 
         private void OnStartGame(InputAction.CallbackContext obj)
         {
+            // Only start with one or more players.
+            if (_playerManager.GetPlayerCount() <= 0) return;
             StartG();
         }
 

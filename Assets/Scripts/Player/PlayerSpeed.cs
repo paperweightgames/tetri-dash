@@ -1,4 +1,4 @@
-﻿using Player.Movement;
+﻿using Player.Input;
 using UnityEngine;
 
 namespace Player
@@ -10,13 +10,13 @@ namespace Player
         [SerializeField] private float _minVelocity;
         [SerializeField] private Vector2 _multiplierBounds;
         private float _speedMultiplier;
-        private PlayerMovement _playerMovement;
+        private KeyboardInput _keyboardInput;
         private Rigidbody2D _rb;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
-            _playerMovement = GetComponent<PlayerMovement>();
+            _keyboardInput = GetComponent<KeyboardInput>();
         }
 
         private void FixedUpdate()
@@ -35,7 +35,6 @@ namespace Player
             // Clamp the speed multiplier.
             _speedMultiplier = Mathf.Clamp(_speedMultiplier, _multiplierBounds.x, _multiplierBounds.y);
             // Update the player's speed multiplier.
-            _playerMovement.SetSpeedMultiplier(_speedMultiplier);
         }
     }
 }

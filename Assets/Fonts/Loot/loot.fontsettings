@@ -8,7 +8,7 @@ Font:
   m_PrefabAsset: {fileID: 0}
   m_Name: loot
   serializedVersion: 5
-  m_LineSpacing: 6
+  m_LineSpacing: 7
   m_DefaultMaterial: {fileID: 2100000, guid: a23cbfbcd5e872843b8697f275464d86, type: 2}
   m_FontSize: 8
   m_Texture: {fileID: 2800000, guid: 0b116cf66b883644d9509c53f1ba72c4, type: 3}
@@ -2547,11 +2547,27 @@ Font:
     advance: 12
     flipped: 1
   - serializedVersion: 2
+    index: 384
+    uv:
+      serializedVersion: 2
+      x: 0.375
+      y: 0.8828125
+      width: 0.0625
+      height: -0.1796875
+    vert:
+      serializedVersion: 2
+      x: -1
+      y: 7
+      width: 23
+      height: -8
+    advance: 22
+    flipped: 1
+  - serializedVersion: 2
     index: 8216
     uv:
       serializedVersion: 2
-      x: 0.125
-      y: 0.9765625
+      x: 0.3125
+      y: 0.8203125
       width: 0.03125
       height: -0.03125
     vert:
@@ -2566,8 +2582,8 @@ Font:
     index: 8217
     uv:
       serializedVersion: 2
-      x: 0.375
-      y: 0.734375
+      x: 0.25
+      y: 0.90625
       width: 0.03125
       height: -0.03125
     vert:
@@ -2582,8 +2598,8 @@ Font:
     index: 8220
     uv:
       serializedVersion: 2
-      x: 0.15625
-      y: 0.984375
+      x: 0.3125
+      y: 0.859375
       width: 0.03125
       height: -0.0390625
     vert:
@@ -2598,7 +2614,7 @@ Font:
     index: 8221
     uv:
       serializedVersion: 2
-      x: 0.3125
+      x: 0.34375
       y: 0.828125
       width: 0.03125
       height: -0.0390625
@@ -2613,7 +2629,7 @@ Font:
   m_KerningValues: []
   m_PixelScale: 0.1
   m_FontData: 
-  m_Ascent: 5
+  m_Ascent: 6
   m_Descent: -1
   m_DefaultStyle: 0
   m_FontNames:

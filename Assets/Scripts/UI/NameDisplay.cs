@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using KeySubstitution;
 using Player;
-using Player.Movement;
+using Player.Input;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +11,6 @@ namespace UI
     {
         [SerializeField] private GameObject _textPrefab;
         [SerializeField] private PlayerManager _playerManager;
-        [SerializeField] private KeyNameObject _keyNameObject;
         private readonly List<Text> _textList = new List<Text>();
 
         private void OnEnable()
@@ -37,8 +36,8 @@ namespace UI
                 var textComponent = newTextObject.GetComponent<Text>();
                 _textList.Add(textComponent);
                 // Set the text to the controls.
-                var playerMovement = player.GetComponent<PlayerMovement>();
-                var playerName = _keyNameObject.FormatKeys(playerMovement.GetKeys());
+                var inputController = player.GetComponent<InputController>();
+                var playerName = inputController.GetName();
                 textComponent.text = playerName;
                 // Set the text colour to the player colour.
                 var playerColour = player.GetComponent<PlayerColour>();

@@ -79,6 +79,36 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1690544181006961125, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690544181006961125, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690544181006961125, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690544181006961125, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690544181006961125, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690544181006961125, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1690544181641827773, guid: 8ba6082819551ad4ca3025c2a28445b7,
         type: 3}
       propertyPath: m_Text
@@ -1179,7 +1209,8 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8928180868813003279, guid: 8ba6082819551ad4ca3025c2a28445b7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8ba6082819551ad4ca3025c2a28445b7, type: 3}
 --- !u!1 &953348831535061636 stripped
 GameObject:

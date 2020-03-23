@@ -82,15 +82,16 @@ GameObject:
   - component: {fileID: 3101726948147708752}
   - component: {fileID: 3101726948147708755}
   - component: {fileID: 3101726948147708754}
-  - component: {fileID: 3101726948147708765}
   - component: {fileID: 8167356647896935386}
   - component: {fileID: 1291665926827110100}
   - component: {fileID: 197412635339117588}
   - component: {fileID: 8130987057428585648}
   - component: {fileID: 5703188940012224889}
   - component: {fileID: 3022510086660745182}
+  - component: {fileID: 4183523431616399825}
+  - component: {fileID: 5333328536838880951}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Keyboard Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,27 +153,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.04}
   m_Size: {x: 0.4, y: 0.5}
   m_Direction: 0
---- !u!114 &3101726948147708765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3101726948147708758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75ce442d5d9820f4d888f4017c3c8590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _upKey: 0
-  _leftKey: 0
-  _rightKey: 0
-  _movementForce: {x: 4, y: 350}
-  _jumpCount: 2
-  _jumpBufferTime: 0.2
-  _normalGravityScale: 1
-  _jumpGravityScale: 3
-  _grounded: {fileID: 6681329034862865536}
 --- !u!114 &8167356647896935386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +243,40 @@ MonoBehaviour:
   _speedDecrease: 5
   _minVelocity: 1
   _multiplierBounds: {x: 1, y: 1.5}
+--- !u!114 &4183523431616399825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3101726948147708758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd71913ebc5406ba7d98d42dfa401f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _walkSpeed: 5
+  _jumpHeight: 350
+  _jumpCount: 2
+  _normalGravity: 1
+  _jumpGravity: 4
+  _playerGrounded: {fileID: 6681329034862865536}
+--- !u!114 &5333328536838880951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3101726948147708758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ce442d5d9820f4d888f4017c3c8590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _upKey: 0
+  _leftKey: 0
+  _rightKey: 0
+  _keyNameObject: {fileID: 11400000, guid: 20b00a34d8c7b3a478b662136d0a3871, type: 2}
 --- !u!1 &4162648039055301210
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8560690092104199223
 Transform:
   m_ObjectHideFlags: 0

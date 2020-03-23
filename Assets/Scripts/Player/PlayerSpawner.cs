@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Player.Movement;
+using Player.Input;
 using UI;
 using UnityEngine.InputSystem;
 using UnityEngine;
@@ -13,13 +13,15 @@ namespace Player
         [SerializeField] private int _maxPlayers;
         [SerializeField] private float _spawnXBound;
         [SerializeField] private List<Key> _keysToIgnore;
-        [SerializeField] private GameObject _playerPrefab;
         [SerializeField] private Key[] _controls = new Key[3];
         [SerializeField] private InputDisplay _inputDisplay;
         [SerializeField] private NameDisplay _nameDisplay;
+        [SerializeField] private GameObject _keyboardPrefab;
+        [SerializeField] private GameObject _controllerPrefab;
+        private readonly List<Gamepad> _gamepads = new List<Gamepad>();
         private int _playerCount;
         private int _currentKey;
-        private PlayerMovement _activePlayerMovement;
+        private KeyboardInput _activeKeyboardInput;
         private PlayerManager _playerManager;
 
         private void Awake()
@@ -29,6 +31,19 @@ namespace Player
 
         private void Update()
         {
+            // Spawn controller.
+            foreach (var gamepad in Gamepad.all)
+            {
+                // Ignore already used controllers.
+                if (_gamepads.Contains(gamepad)) continue;
+                if (!gamepad.buttonSouth.wasPressedThisFrame) continue;
+                // Spawn new player.
+                _gamepads.Add(gamepad);
+                var player = SpawnPlayer(_controllerPrefab);
+                player.GetComponent<ControllerInput>().SetGamepad(gamepad);
+                _nameDisplay.UpdatePlayers();
+                print(gamepad.name);
+            }
             // Don't run if max number of players reached.
             if (_playerCount >= _maxPlayers) return;
             // Skip if no key was pressed.
@@ -42,17 +57,18 @@ namespace Player
             switch (_currentKey)
             {
                 // Once the jump key is pressed, create a new player.
-                case 0 when !_activePlayerMovement:
-                    SpawnPlayer();
-                    _activePlayerMovement.SetJumpKey(_controls[0]);
+                case 0 when !_activeKeyboardInput:
+                    var player = SpawnPlayer(_keyboardPrefab);
+                    _activeKeyboardInput = player.GetComponent<KeyboardInput>();
+                    _activeKeyboardInput.SetJumpKey(_controls[0]);
                     break;
                 case 1:
-                    _activePlayerMovement.SetLeftKey(_controls[1]);
+                    _activeKeyboardInput.SetLeftKey(_controls[1]);
                     break;
                 case 2:
-                    _activePlayerMovement.SetRightKey(_controls[2]);
+                    _activeKeyboardInput.SetRightKey(_controls[2]);
                     // Clean up after the player.
-                    _activePlayerMovement = null;
+                    _activeKeyboardInput = null;
                     _controls = new Key[3];
                     _playerCount++;
                     break;
@@ -74,14 +90,14 @@ namespace Player
             }
         }
         
-        private void SpawnPlayer()
+        private GameObject SpawnPlayer(GameObject playerPrefab)
         {
             var randomX = Random.Range(-_spawnXBound, _spawnXBound);
             var t = transform;
             var spawnPosition = new Vector2(randomX, t.position.y);
-            var newPlayer = Instantiate(_playerPrefab, spawnPosition, Quaternion.identity, t);
+            var newPlayer = Instantiate(playerPrefab, spawnPosition, Quaternion.identity, t);
             _playerManager.AddPlayer(newPlayer);
-            _activePlayerMovement = newPlayer.GetComponent<PlayerMovement>();
+            return newPlayer;
         }
         private Key GetPressedKey()
         {

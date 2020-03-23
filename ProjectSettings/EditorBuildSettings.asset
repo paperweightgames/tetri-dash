@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 437f9d087a9af384eabfacc118952231
+  - enabled: 0
+    path: Assets/Scenes/Level 1.unity
+    guid: 321a33ce6a6185b42b2cc9bbdd56d997
   - enabled: 1
-    path: Assets/Scenes/Two Lanes.unity
-    guid: 4eb1712abeb28de4db29708deae98efb
+    path: Assets/Scenes/Level 1.unity
+    guid: b3e1cdaeb8047d34c8caee643b685b6e
   m_configObjects: {}

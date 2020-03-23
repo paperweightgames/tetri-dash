@@ -192,6 +192,66 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -5
       objectReference: {fileID: 0}
+    - target: {fileID: 437799574380826785, guid: ab8fca5c18cda474dafe5681e72f2c03,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437799574380826785, guid: ab8fca5c18cda474dafe5681e72f2c03,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437799574380826785, guid: ab8fca5c18cda474dafe5681e72f2c03,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437799574380826785, guid: ab8fca5c18cda474dafe5681e72f2c03,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437799574380826785, guid: ab8fca5c18cda474dafe5681e72f2c03,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437799574380826785, guid: ab8fca5c18cda474dafe5681e72f2c03,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728399272666040334, guid: ab8fca5c18cda474dafe5681e72f2c03,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728399272666040334, guid: ab8fca5c18cda474dafe5681e72f2c03,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728399272666040334, guid: ab8fca5c18cda474dafe5681e72f2c03,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728399272666040334, guid: ab8fca5c18cda474dafe5681e72f2c03,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728399272666040334, guid: ab8fca5c18cda474dafe5681e72f2c03,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728399272666040334, guid: ab8fca5c18cda474dafe5681e72f2c03,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8677883906465664017, guid: ab8fca5c18cda474dafe5681e72f2c03,
         type: 3}
       propertyPath: m_Name
@@ -11967,18 +12027,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 771670737}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &799094961 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 753751368, guid: ab8fca5c18cda474dafe5681e72f2c03,
-    type: 3}
-  m_PrefabInstance: {fileID: 109793251}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f15d0b4c7984f2ab41bdcfd1a05422a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &802962414
 GameObject:
   m_ObjectHideFlags: 0
@@ -12111,11 +12159,11 @@ MonoBehaviour:
   _maxPlayers: 999
   _spawnXBound: 4
   _keysToIgnore: 0200000004000000390000003a0000003c000000410000004a0000005e0000005f00000060000000610000006200000063000000640000006500000066000000670000006800000069000000330000003400000035000000360000003700000038000000
-  _playerPrefab: {fileID: 3101726948147708758, guid: b9bfb6450f2bfa04db3768ca30007b7b,
-    type: 3}
   _controls: 00000000000000000000000000000000
   _inputDisplay: {fileID: 406070960}
   _nameDisplay: {fileID: 558331235}
+  _keyboardPrefab: {fileID: 0}
+  _controllerPrefab: {fileID: 0}
 --- !u!114 &839328877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12207,7 +12255,8 @@ MonoBehaviour:
   - {fileID: 354739799}
   - {fileID: 1182169290}
   - {fileID: 1284331225}
-  - {fileID: 799094961}
+  - {fileID: 0}
+  _playerManager: {fileID: 0}
 --- !u!114 &1040005557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12351,7 +12400,7 @@ MonoBehaviour:
   _spawnInterval: 0
   _fallVelocity: 0.8
   _maxDistance: 30
-  _acceleration: 100
+  _acceleration: 300
   _moveAttempts: 3
   _xSpread: 3
   _ySpread: {x: -2, y: 4}
