@@ -6,22 +6,24 @@ namespace Player
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
+            // Check for player.
             if (other.isTrigger) return;
             if (!other.CompareTag("Player")) return;
+            
             other.transform.parent = transform;
             var rigidBody = other.GetComponent<Rigidbody2D>();
             rigidBody.bodyType = RigidbodyType2D.Kinematic;
-            rigidBody.gravityScale = 0;
+            rigidBody.simulated = false;
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
             if (other.isTrigger) return;
             if (!other.CompareTag("Player")) return;
+            
             other.transform.parent = null;
             var rigidBody = other.GetComponent<Rigidbody2D>();
-            rigidBody.bodyType = RigidbodyType2D.Dynamic;
-            rigidBody.gravityScale = 1;
+            rigidBody.simulated = true;
         }
     }
 }

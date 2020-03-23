@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Player.Movement;
 using UI;
 using UnityEngine.InputSystem;
 using UnityEngine;
@@ -9,10 +10,11 @@ namespace Player
 {
     public class PlayerSpawner : MonoBehaviour
     {
-        [SerializeField] private List<Key> _keysToIgnore;
+        [SerializeField] private int _maxPlayers;
         [SerializeField] private float _spawnXBound;
+        [SerializeField] private List<Key> _keysToIgnore;
         [SerializeField] private GameObject _playerPrefab;
-        [SerializeField] private Key[] _controls = new Key[4];
+        [SerializeField] private Key[] _controls = new Key[3];
         [SerializeField] private InputDisplay _inputDisplay;
         [SerializeField] private NameDisplay _nameDisplay;
         private int _playerCount;
@@ -28,7 +30,7 @@ namespace Player
         private void Update()
         {
             // Don't run if max number of players reached.
-            if (_playerCount >= _playerManager.GetMaxCount()) return;
+            if (_playerCount >= _maxPlayers) return;
             // Skip if no key was pressed.
             if (!Keyboard.current.anyKey.wasPressedThisFrame) return;
             var pressedKey = GetPressedKey();
@@ -48,20 +50,17 @@ namespace Player
                     _activePlayerMovement.SetLeftKey(_controls[1]);
                     break;
                 case 2:
-                    _activePlayerMovement.SetActionKey(_controls[2]);
-                    break;
-                case 3:
-                    _activePlayerMovement.SetRightKey(_controls[3]);
+                    _activePlayerMovement.SetRightKey(_controls[2]);
                     // Clean up after the player.
                     _activePlayerMovement = null;
-                    _controls = new Key[4];
+                    _controls = new Key[3];
                     _playerCount++;
                     break;
             }
             _inputDisplay.AdvancePrompt();
             _nameDisplay.UpdatePlayers();
             _currentKey++;
-            if (_currentKey >= 4)
+            if (_currentKey >= _controls.Length)
             {
                 _currentKey = 0;
             }

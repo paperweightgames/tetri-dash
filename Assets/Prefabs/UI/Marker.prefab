@@ -82,7 +82,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4155033481039568733}
-  - component: {fileID: 4155033481039568732}
+  - component: {fileID: 8611143134110051399}
   m_Layer: 5
   m_Name: Marker
   m_TagString: Untagged
@@ -111,7 +111,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4155033481039568732
+--- !u!114 &8611143134110051399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,13 +120,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4155033481039568730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6aec2d11cc0e473c80543f7d7c28bee6, type: 3}
+  m_Script: {fileID: 11500000, guid: d267f4156c103764fa30153047a7cd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _markerColour: {r: 0.3764706, g: 0, b: 0, a: 1}
-  _followTransform: {fileID: 0}
-  _text: {fileID: 5637731916058856762}
-  _line: {fileID: 4155033480424609234}
+  _targetTransform: {fileID: 0}
+  _speed: 1
+  _offset: {x: 0, y: 0, z: 0}
 --- !u!1001 &4155033479920550235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -277,15 +276,3 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4155033479920550235}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5637731916058856762 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8616683104118443105, guid: d27a01e01ff0b9d4094fc0dcf2e5ecc0,
-    type: 3}
-  m_PrefabInstance: {fileID: 4155033479920550235}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

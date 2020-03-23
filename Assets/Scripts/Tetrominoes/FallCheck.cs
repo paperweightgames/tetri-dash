@@ -2,10 +2,10 @@
 
 namespace Tetrominoes.SmoothFall
 {
-    public class SmoothFallCheck : MonoBehaviour
+    public class FallCheck : MonoBehaviour
     {
         private Transform _parent;
-        
+
         private void Awake()
         {
             _parent = transform.parent;

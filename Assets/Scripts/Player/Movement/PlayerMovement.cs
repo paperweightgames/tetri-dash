@@ -1,12 +1,12 @@
-﻿using UnityEngine.InputSystem;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-namespace Player
+namespace Player.Movement
 {
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private Key _upKey = Key.W;
-        [SerializeField] private Key _actionKey = Key.S;
         [SerializeField] private Key _leftKey = Key.A;
         [SerializeField] private Key _rightKey = Key.D;
         [SerializeField] private Vector2 _movementForce;
@@ -15,6 +15,7 @@ namespace Player
         [SerializeField] private float _normalGravityScale = 1;
         [SerializeField] private float _jumpGravityScale = 2;
         [SerializeField] private PlayerGrounded _grounded;
+        private float _speedMultiplier = 1;
         private bool _jumpKeyHeld;
         private float _timeSinceJump;
         private int _jumps;
@@ -24,11 +25,6 @@ namespace Player
         public void SetJumpKey(Key jumpKey)
         {
             _upKey = jumpKey;
-        }
-
-        public void SetActionKey(Key actionKey)
-        {
-            _actionKey = actionKey;
         }
 
         public void SetLeftKey(Key leftKey)
@@ -41,9 +37,14 @@ namespace Player
             _rightKey = rightKey;
         }
 
-        public Key[] GetKeys()
+        public IEnumerable<Key> GetKeys()
         {
-            return new[] {_upKey, _leftKey, _actionKey, _rightKey};
+            return new[] {_upKey, _leftKey, _rightKey};
+        }
+
+        public void SetSpeedMultiplier(float speedMultiplier)
+        {
+            _speedMultiplier = speedMultiplier;
         }
         private void Awake()
         {
@@ -94,7 +95,7 @@ namespace Player
             }
             // Horizontal Movement.
             var newVelocity = _rb2d.velocity;
-            newVelocity.x = _movementForce.x * _playerInput.x;
+            newVelocity.x = _movementForce.x * _playerInput.x * _speedMultiplier;
             _rb2d.velocity = newVelocity;
             // Jumping.
             if (_playerInput.y > 0 && _jumps < _jumpCount)
@@ -104,7 +105,7 @@ namespace Player
                 // Reset vertical velocity.
                 _rb2d.velocity = Vector2.right * _rb2d.velocity.x;
                 // Add vertical force.
-                var jumpForce = Vector2.up * _movementForce.y;
+                var jumpForce = _speedMultiplier * _movementForce.y * Vector2.up;
                 _rb2d.AddForce(jumpForce);
             }
             // Jumping gravity.

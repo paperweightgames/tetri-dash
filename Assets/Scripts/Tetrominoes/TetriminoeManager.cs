@@ -2,23 +2,25 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Tetrominoes.SmoothFall
+namespace Tetrominoes
 {
-    public class SmoothTetriminoeManager : MonoBehaviour
+    public class TetriminoeManager : MonoBehaviour
     {
         [SerializeField] private float _spawnInterval = 1;
         [SerializeField] private float _fallVelocity;
         [SerializeField] private float _maxDistance;
+        [SerializeField] private float _acceleration;
         [SerializeField] private int _moveAttempts = 2;
-        [SerializeField] private Vector2Int _xSpread;
+        [SerializeField] private int _xSpread;
         [SerializeField] private Vector2Int _ySpread;
         [SerializeField] private TetriminoePalette _tetriminoePalette;
-        [SerializeField] private SmoothFall _smoothFall;
+        [SerializeField] private Rigidbody2D _smoothFall;
         [SerializeField] private Transform _cameraTransform;
         [SerializeField] private Transform _highestTetriminoe;
         private readonly List<Collider2D> _results = new List<Collider2D>();
         private readonly ContactFilter2D _contactFilter = new ContactFilter2D();
         private Grid _grid;
+        private float _playTime;
         private float _timeSinceSpawn;
         private int _attempts;
 
@@ -29,11 +31,19 @@ namespace Tetrominoes.SmoothFall
 
         private void Start()
         {
-            _smoothFall.SetVelocity(_fallVelocity);
+            _smoothFall.velocity = Vector2.down * _fallVelocity;
+            _timeSinceSpawn = _spawnInterval;
         }
 
         private void Update()
         {
+            // Keep track of time passed.
+            _playTime += Time.deltaTime;
+            // Update the speed of the tetrominoes.
+            _fallVelocity = _playTime / _acceleration + 0.8f;
+            _fallVelocity = Mathf.Clamp(_fallVelocity, 0, 8);
+            _smoothFall.velocity = Vector2.down * _fallVelocity;
+            
             if (_timeSinceSpawn >= _spawnInterval)
             {
                 // Don't spawn if too far ahead.
@@ -79,11 +89,11 @@ namespace Tetrominoes.SmoothFall
 
         private Vector2 GetRandomSpawnPosition()
         {
-            var randomX = Random.Range(_xSpread.x, _xSpread.y);
+            var randomX = Random.Range(-_xSpread, _xSpread + 1);
             var randomY = Random.Range(_ySpread.x, _ySpread.y);
             var cellSize = _grid.cellSize;
             var randomPosition = new Vector2(randomX, randomY) * cellSize;
-            var offsetPosition = Vector3.up * _highestTetriminoe.position.y;
+            var offsetPosition = new Vector3(transform.position.x, _highestTetriminoe.position.y);
             var roundedYPosition = Mathf.Round(offsetPosition.y / cellSize.y) * _grid.cellSize.y;
             randomPosition += new Vector2(offsetPosition.x, roundedYPosition);
             return randomPosition;

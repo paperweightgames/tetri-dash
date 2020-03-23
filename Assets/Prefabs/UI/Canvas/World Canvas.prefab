@@ -249,7 +249,6 @@ MonoBehaviour:
   _prompts:
   - jump
   - walk left
-  - crouch
   - walk right
 --- !u!1 &454695351
 GameObject:

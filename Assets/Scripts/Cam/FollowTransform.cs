@@ -2,7 +2,7 @@
 
 namespace Cam
 {
-    public class CameraFollow : MonoBehaviour
+    public class FollowTransform : MonoBehaviour
     {
         [SerializeField] private Transform _targetTransform;
         [SerializeField, Range(0, 1)] private float _speed;

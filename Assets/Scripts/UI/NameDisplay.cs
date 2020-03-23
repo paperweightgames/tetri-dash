@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using KeySubstitution;
 using Player;
+using Player.Movement;
 using UnityEngine;
 using UnityEngine.UI;
 

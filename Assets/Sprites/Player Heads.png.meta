@@ -4,19 +4,25 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 7726654730068558298
-    second: Default
+    second: Head Default
   - first:
       213: 7220224053832809486
-    second: Cap
+    second: Head Cap
   - first:
       213: 7726654730068558298
-    second: Default
+    second: Head Default
   - first:
       213: -2622396234733445472
-    second: Top Hat
+    second: Head Top Hat
   - first:
       213: 8881707587385767823
-    second: Horns
+    second: Head Horns
+  - first:
+      213: 4851186948604344007
+    second: Head Big
+  - first:
+      213: 6796979384619623882
+    second: Head Fish
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -113,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Default
+      name: Head Default
       rect:
         serializedVersion: 2
         x: 0
@@ -134,15 +140,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cap
+      name: Head Cap
       rect:
         serializedVersion: 2
         x: 8
         y: 0
         width: 3
-        height: 2
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 3
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,13 +161,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Top Hat
+      name: Head Top Hat
       rect:
         serializedVersion: 2
         x: 3
         y: 0
         width: 4
-        height: 4
+        height: 5
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,7 +182,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Horns
+      name: Head Horns
       rect:
         serializedVersion: 2
         x: 12
@@ -192,6 +198,48 @@ TextureImporter:
       bones: []
       spriteID: f8735015ef9224b70800000000000000
       internalID: 8881707587385767823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head Big
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 4
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c6b29ab3d0e25340800000000000000
+      internalID: 4851186948604344007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head Fish
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 0
+        width: 4
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac5e7e50db8b35e50800000000000000
+      internalID: 6796979384619623882
       vertices: []
       indices: 
       edges: []

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player
@@ -11,7 +11,7 @@ namespace Player
         [SerializeField] private Transform _player;
         [SerializeField] private GameObject _capePrefab;
         [SerializeField] private PlayerColour _playerColour;
-        private List<Transform> _capeSegments = new List<Transform>();
+        private readonly List<Transform> _capeSegments = new List<Transform>();
 
         private void Start()
         {

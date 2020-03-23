@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player.Tracker
@@ -6,7 +7,13 @@ namespace Player.Tracker
     public class HighestHeight : MonoBehaviour
     {
         [SerializeField] private PlayerManager _playerManager;
+        [SerializeField] private LevelHighScore _levelHighScore;
         private readonly List<Transform> _playerList = new List<Transform>();
+
+        private void Awake()
+        {
+            transform.position = _levelHighScore.GetHight() * Vector3.up;
+        }
 
         private void OnEnable()
         {
@@ -24,15 +31,16 @@ namespace Player.Tracker
 
         private void Update()
         {
+            var height = _levelHighScore.GetHight();
             foreach (var player in _playerList)
             {
                 // Check if a player is higher than the highest point.
-                if (player.position.y > transform.position.y)
-                {
-                    var newPosition = Vector3.up * player.position.y;
-                    transform.position = newPosition;
-                }
+                if (!(player.position.y > height)) continue;
+                height = player.position.y;
+                _levelHighScore.SetHight(height);
             }
+
+            transform.position = height * Vector3.up;
         }
     }
 }

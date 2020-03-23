@@ -14,11 +14,6 @@ namespace Player
             return _players.Count;
         }
 
-        public int GetMaxCount()
-        {
-            return _playerColours.Length;
-        }
-
         public List<GameObject> GetPlayers()
         {
             return _players;
@@ -27,7 +22,8 @@ namespace Player
         public void AddPlayer(GameObject newPlayer)
         {
             // Assign the player to a colour.
-            var playerColour = _playerColours[_players.Count];
+            var playerColourIndex = _players.Count % _playerColours.Length;
+            var playerColour = _playerColours[playerColourIndex];
             newPlayer.GetComponent<PlayerColour>().SetColour(playerColour);
             
             _players.Add(newPlayer);
