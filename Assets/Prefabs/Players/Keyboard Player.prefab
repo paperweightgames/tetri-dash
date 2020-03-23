@@ -261,6 +261,7 @@ MonoBehaviour:
   _normalGravity: 1
   _jumpGravity: 4
   _playerGrounded: {fileID: 6681329034862865536}
+  _playerHead: {fileID: 485548524993220413}
 --- !u!114 &5333328536838880951
 MonoBehaviour:
   m_ObjectHideFlags: 0

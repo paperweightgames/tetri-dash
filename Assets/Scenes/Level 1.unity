@@ -186,7 +186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 855837340, guid: ab8fca5c18cda474dafe5681e72f2c03, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 855837340, guid: ab8fca5c18cda474dafe5681e72f2c03, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -220,6 +220,11 @@ PrefabInstance:
     - target: {fileID: 437799574380826785, guid: ab8fca5c18cda474dafe5681e72f2c03,
         type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266607374598945668, guid: ab8fca5c18cda474dafe5681e72f2c03,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2728399272666040334, guid: ab8fca5c18cda474dafe5681e72f2c03,
@@ -12162,8 +12167,10 @@ MonoBehaviour:
   _controls: 00000000000000000000000000000000
   _inputDisplay: {fileID: 406070960}
   _nameDisplay: {fileID: 558331235}
-  _keyboardPrefab: {fileID: 0}
-  _controllerPrefab: {fileID: 0}
+  _keyboardPrefab: {fileID: 3101726948147708758, guid: b9bfb6450f2bfa04db3768ca30007b7b,
+    type: 3}
+  _controllerPrefab: {fileID: 3265185782505396471, guid: d01c4dc4b351d7e4284eec7f4b5f169d,
+    type: 3}
 --- !u!114 &839328877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12249,14 +12256,13 @@ MonoBehaviour:
   _hudCanvas: {fileID: 1104380652}
   _worldCanvas: {fileID: 442754817298331172}
   _playerSpawner: {fileID: 839328876}
+  _playerManager: {fileID: 839328877}
   _behavioursToEnable:
   - {fileID: 1311722859}
   - {fileID: 214288188}
   - {fileID: 354739799}
   - {fileID: 1182169290}
   - {fileID: 1284331225}
-  - {fileID: 0}
-  _playerManager: {fileID: 0}
 --- !u!114 &1040005557
 MonoBehaviour:
   m_ObjectHideFlags: 0

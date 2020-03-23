@@ -14,8 +14,8 @@ namespace Utility
         [SerializeField] private GameObject _hudCanvas;
         [SerializeField] private GameObject _worldCanvas;
         [SerializeField] private PlayerSpawner _playerSpawner;
-        [SerializeField] private Behaviour[] _behavioursToEnable;
         [SerializeField] private PlayerManager _playerManager;
+        [SerializeField] private Behaviour[] _behavioursToEnable;
 
         private void OnEnable()
         {
@@ -54,6 +54,11 @@ namespace Utility
                 behaviour.enabled = true;
             }
             enabled = false;
+            // Stop head changing.
+            foreach (var playerHead in FindObjectsOfType<PlayerHead>())
+            {
+                playerHead.enabled = false;
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Player
         [SerializeField] private float _normalGravity;
         [SerializeField] private float _jumpGravity;
         [SerializeField] private PlayerGrounded _playerGrounded;
+        [SerializeField] private PlayerHead _playerHead;
         private Vector2 _playerInput;
         private bool _canJump;
         private int _jumps;
@@ -46,6 +47,10 @@ namespace Player
             {
                 _canJump = false;
                 _jumps++;
+                if (_playerHead.enabled)
+                {
+                    _playerHead.NextHead();
+                }
                 // Reset vertical velocity.
                 _rb.velocity = Vector2.right * _rb.velocity.x;
                 // Add vertical force.
