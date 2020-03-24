@@ -42,7 +42,6 @@ namespace Player
                 var player = SpawnPlayer(_controllerPrefab);
                 player.GetComponent<ControllerInput>().SetGamepad(gamepad);
                 _nameDisplay.UpdatePlayers();
-                print(gamepad.name);
             }
             // Don't run if max number of players reached.
             if (_playerCount >= _maxPlayers) return;

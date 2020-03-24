@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cda6c2945c14ef43a30849876e5588d, type: 3}
-  m_Name: Smooth
+  m_Name: Default
   m_EditorClassIdentifier: 
   _tetriminoePrefabs:
   - {fileID: 5800117024296080371, guid: 77fe8468557867d4fb4ca7e1e779bab2, type: 3}
@@ -43,3 +43,4 @@ MonoBehaviour:
   - {fileID: 2159285936090797578, guid: 4113fe11393aac34c97fae984b9b37df, type: 3}
   - {fileID: 1601433203925635060, guid: 48dd38722c85ac843b6c313474ec2040, type: 3}
   - {fileID: 3120342366877670586, guid: 987df057474f0e249a8e057b57d410d4, type: 3}
+  - {fileID: 4346374174193140313, guid: 3e0192e284927e44081d613fbd36594f, type: 3}

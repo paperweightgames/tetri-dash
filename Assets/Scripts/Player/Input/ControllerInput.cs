@@ -1,12 +1,9 @@
-﻿using KeySubstitution;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine.InputSystem;
 
 namespace Player.Input
 {
     public class ControllerInput : InputController
     {
-        [SerializeField] private GamepadNameObject _gamepadNameObject;
         private Gamepad _gamepad;
 
         public void SetGamepad(Gamepad gamepad)
@@ -16,7 +13,7 @@ namespace Player.Input
 
         public override string GetName()
         {
-            return _gamepadNameObject.FormatGamepad(_gamepad.name);
+            return "ƀ";
         }
 
         protected override void Update()

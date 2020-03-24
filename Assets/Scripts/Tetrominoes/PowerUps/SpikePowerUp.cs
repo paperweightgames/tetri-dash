@@ -13,8 +13,8 @@ namespace Tetrominoes.PowerUps
             if (!other.gameObject.CompareTag("Player")) return;
             if (other.collider.isTrigger) return;
             // Hurt the player.
-            other.gameObject.GetComponent<PlayerHealth>().ChangeHealth(-_damage);
-            Destroy(gameObject);
+            other.gameObject.GetComponent<PlayerHealth>().Hurt(_damage);
+            // Destroy(gameObject);
         }
     }
 }

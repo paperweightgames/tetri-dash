@@ -13,7 +13,7 @@ namespace Tetrominoes.PowerUps
             if (!other.CompareTag("Player")) return;
             if (other.isTrigger) return;
             // Add health.
-            other.GetComponent<PlayerHealth>().ChangeHealth(_healAmount);
+            other.GetComponent<PlayerHealth>().Heal(_healAmount);
             Destroy(_parent.gameObject);
         }
     }

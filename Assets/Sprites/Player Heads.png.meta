@@ -23,6 +23,15 @@ TextureImporter:
   - first:
       213: 6796979384619623882
     second: Head Fish
+  - first:
+      213: -164110121215781008
+    second: Head Bubble
+  - first:
+      213: -164110121215781008
+    second: Head Bubble
+  - first:
+      213: -1602375313756881929
+    second: Head Fez
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -240,6 +249,48 @@ TextureImporter:
       bones: []
       spriteID: ac5e7e50db8b35e50800000000000000
       internalID: 6796979384619623882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head Bubble
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 4
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07713e8d6b6f8bdf0800000000000000
+      internalID: -164110121215781008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head Fez
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 8
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb7aa2542833c9e0800000000000000
+      internalID: -1602375313756881929
       vertices: []
       indices: 
       edges: []

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Player
 {
@@ -6,36 +8,39 @@ namespace Player
     {
         [SerializeField] private Transform _player;
         private Transform _parent;
-        private bool _isGrounded;
+        private List<Collider2D> _colliders = new List<Collider2D>();
 
         private void Start()
         {
             _parent = _player.parent;
         }
 
+        private void FixedUpdate()
+        {
+            _colliders.RemoveAll(item => item == null);
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (other.isTrigger) return;
             if (other.CompareTag("Player")) return;
-            if (other.CompareTag("Tetriminoe"))
-            {
-                // _player.parent = other.transform;
-            }
-            _isGrounded = true;
+            if (!other.CompareTag("Tetriminoe")) return;
+            if (_colliders.Contains(other)) return;
+            _colliders.Add(other);
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Player")) return;
-            if (other.CompareTag("Tetriminoe"))
-            {
-                _player.parent = _parent;
-            }
-            _isGrounded = false;
+            if (other.isTrigger) return;
+            if (other.CompareTag("Player")) return;
+            if (!other.CompareTag("Tetriminoe")) return;
+            if (!_colliders.Contains(other)) return;
+            _colliders.Remove(other);
         }
 
         public bool IsGrounded()
         {
-            return _isGrounded;
+            return _colliders.Count >= 1;
         }
     }
 }
