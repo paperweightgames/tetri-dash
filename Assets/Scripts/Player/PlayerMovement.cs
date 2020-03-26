@@ -27,6 +27,11 @@ namespace Player
             _rb = GetComponent<Rigidbody2D>();
         }
 
+        public void ResetJumps()
+        {
+            _jumps = 0;
+        }
+
         private void FixedUpdate()
         {
             if (_playerInput.y <= 0)

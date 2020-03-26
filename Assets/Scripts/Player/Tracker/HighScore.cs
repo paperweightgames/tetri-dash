@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Player.Tracker
 {
-    public class HighestHeight : MonoBehaviour
+    public class HighScore : MonoBehaviour
     {
         [SerializeField] private PlayerManager _playerManager;
         [SerializeField] private LevelHighScore _levelHighScore;

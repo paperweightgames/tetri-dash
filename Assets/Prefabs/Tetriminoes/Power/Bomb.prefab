@@ -34,7 +34,7 @@ MonoBehaviour:
   _force: 1000
   _radius: 6
   _minDistance: 0.5
-  _damage: 0
+  _damage: 1
 --- !u!1001 &4220775954453037715
 PrefabInstance:
   m_ObjectHideFlags: 0

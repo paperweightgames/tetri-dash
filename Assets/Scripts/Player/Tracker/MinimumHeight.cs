@@ -1,11 +1,19 @@
 ﻿using UnityEngine;
 
-public class MinimumHeight : MonoBehaviour
+namespace Player.Tracker
 {
-    [SerializeField] private float _speed;
-
-    private void Update()
+    public class MinimumHeight : MonoBehaviour
     {
-        transform.position += Time.deltaTime * _speed * Vector3.up;
+        [SerializeField] private float _speed;
+        [SerializeField] private float _acceleration;
+        [SerializeField] private float _maxSpeed;
+
+        private void Update()
+        {
+            // speed up the tracker.
+            _speed += _acceleration * Time.deltaTime;
+            _speed = Mathf.Min(_speed, _maxSpeed);
+            transform.position += Time.deltaTime * _speed * Vector3.up;
+        }
     }
 }

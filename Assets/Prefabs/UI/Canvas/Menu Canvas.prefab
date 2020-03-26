@@ -443,7 +443,7 @@ PrefabInstance:
     - target: {fileID: 8616683104118443105, guid: d27a01e01ff0b9d4094fc0dcf2e5ecc0,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.627451
+      value: 0.3764706
       objectReference: {fileID: 0}
     - target: {fileID: 8616683104118443105, guid: d27a01e01ff0b9d4094fc0dcf2e5ecc0,
         type: 3}
@@ -1808,7 +1808,7 @@ PrefabInstance:
     - target: {fileID: 4014808819067563402, guid: ad7b720e17c08f642b9900e3f40c94c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: https://jstn-as.github.io/
+      value: https://jstnas.github.io/
       objectReference: {fileID: 0}
     - target: {fileID: 4014808819067563403, guid: ad7b720e17c08f642b9900e3f40c94c6,
         type: 3}
@@ -8222,7 +8222,7 @@ PrefabInstance:
     - target: {fileID: 8616683104118443105, guid: d27a01e01ff0b9d4094fc0dcf2e5ecc0,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.627451
+      value: 0.3764706
       objectReference: {fileID: 0}
     - target: {fileID: 8616683104118443105, guid: d27a01e01ff0b9d4094fc0dcf2e5ecc0,
         type: 3}
@@ -8677,7 +8677,7 @@ PrefabInstance:
     - target: {fileID: 8616683104118443105, guid: d27a01e01ff0b9d4094fc0dcf2e5ecc0,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.627451
+      value: 0.3764706
       objectReference: {fileID: 0}
     - target: {fileID: 8616683104118443105, guid: d27a01e01ff0b9d4094fc0dcf2e5ecc0,
         type: 3}

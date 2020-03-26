@@ -7,7 +7,7 @@ namespace Tetrominoes
     public class TetriminoeManager : MonoBehaviour
     {
         [SerializeField] private float _spawnInterval = 1;
-        [SerializeField] private float _fallVelocity;
+        [SerializeField] private float _startVelocity;
         [SerializeField] private float _maxDistance;
         [SerializeField] private float _acceleration;
         [SerializeField] private int _moveAttempts = 2;
@@ -20,6 +20,7 @@ namespace Tetrominoes
         private readonly List<Collider2D> _results = new List<Collider2D>();
         private readonly ContactFilter2D _contactFilter = new ContactFilter2D();
         private Grid _grid;
+        private float _fallVelocity;
         private float _playTime;
         private float _timeSinceSpawn;
         private int _attempts;
@@ -40,7 +41,7 @@ namespace Tetrominoes
             // Keep track of time passed.
             _playTime += Time.deltaTime;
             // Update the speed of the tetrominoes.
-            _fallVelocity = _playTime / _acceleration + 0.8f;
+            _fallVelocity = _playTime / _acceleration + _startVelocity;
             _fallVelocity = Mathf.Clamp(_fallVelocity, 0, 8);
             _smoothFall.velocity = Vector2.down * _fallVelocity;
             
@@ -75,8 +76,7 @@ namespace Tetrominoes
                     // Set new tetromino as highest.
                     if (newTetriminoe.transform.position.y > _highestTetriminoe.position.y)
                     {
-                        var newPosition = Vector3.up * newTetriminoe.transform.position.y;
-                        _highestTetriminoe.position = newPosition;
+                        _highestTetriminoe = newTetriminoe.transform;
                     }
                     return;
                 }

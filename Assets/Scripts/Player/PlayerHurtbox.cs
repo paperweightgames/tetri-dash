@@ -19,6 +19,8 @@ namespace Player
             // Reset y velocity.
             var rb = other.GetComponent<Rigidbody2D>();
             rb.velocity = Vector2.right * rb.velocity.x;
+            // Reset the player's jump count.
+            other.GetComponent<PlayerMovement>().ResetJumps();
         }
     }
 }
