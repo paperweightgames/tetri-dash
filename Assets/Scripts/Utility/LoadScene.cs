@@ -5,9 +5,9 @@ namespace Utility
 {
     public class LoadScene : MonoBehaviour
     {
-        public void Load(int sceneIndex)
+        public void Load(string sceneName)
         {
-            SceneManager.LoadScene(sceneIndex);
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

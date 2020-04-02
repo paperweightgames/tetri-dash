@@ -8,8 +8,8 @@ namespace Utility
         public void Reload()
         {
             Time.timeScale = 1;
-            var sceneIndex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(sceneIndex);
+            var sceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

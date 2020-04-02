@@ -58,7 +58,6 @@ namespace Player
 
         private void Die()
         {
-            print("Dead!");
             gameObject.SetActive(false);
             _playerManager.CheckGameOver();
         }

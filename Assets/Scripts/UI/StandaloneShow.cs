@@ -9,7 +9,8 @@ namespace UI
             #if UNITY_STANDALONE
                 return;
             #else
-                Destroy(gameObject);
+            // Destroy all game objects.
+                gameObject.SetActive(false);
             #endif
         }
     }

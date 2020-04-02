@@ -37,7 +37,6 @@ namespace Player
                 if (player.activeSelf) return;
             }
             // Check for game over.
-            print("Game over.");
             _restartCanvas.SetActive(true);
             Time.timeScale = 0;
         }

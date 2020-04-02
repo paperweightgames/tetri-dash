@@ -109,6 +109,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1690544181006961126, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_Text
+      value: paused
+      objectReference: {fileID: 0}
     - target: {fileID: 1690544181641827773, guid: 8ba6082819551ad4ca3025c2a28445b7,
         type: 3}
       propertyPath: m_Text
@@ -429,6 +434,36 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 56
       objectReference: {fileID: 0}
+    - target: {fileID: 2867437422107456947, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867437422107456947, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867437422107456947, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867437422107456947, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867437422107456947, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867437422107456947, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3358947299025110651, guid: 8ba6082819551ad4ca3025c2a28445b7,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -699,6 +734,36 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5791546132406169652, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791546132406169652, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791546132406169652, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791546132406169652, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791546132406169652, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791546132406169652, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6293191147738782336, guid: 8ba6082819551ad4ca3025c2a28445b7,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -742,7 +807,7 @@ PrefabInstance:
     - target: {fileID: 6293191147738782337, guid: 8ba6082819551ad4ca3025c2a28445b7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6293191147738782337, guid: 8ba6082819551ad4ca3025c2a28445b7,
         type: 3}
@@ -753,6 +818,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293191147738782337, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 6293191147738782351, guid: 8ba6082819551ad4ca3025c2a28445b7,
         type: 3}

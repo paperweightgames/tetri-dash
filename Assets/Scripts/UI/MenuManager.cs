@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,12 +8,11 @@ namespace Ui
     public class MenuManager : MonoBehaviour
     {
         [SerializeField] private GameObject _activePanel;
-        private EventSystem _eventSystem;
+        [SerializeField] private EventSystem _eventSystem;
         private GameObject _defaultSelectable;
 
-        private void Awake()
+        private void Start()
         {
-            _eventSystem = FindObjectOfType<EventSystem>();
             SwitchPanel(_activePanel);
         }
 
@@ -26,18 +26,20 @@ namespace Ui
 
         private void SetupNavigation(GameObject panel)
         {
-            var selectables = panel.GetComponentsInChildren<Selectable>();
+            var selectables = panel.GetComponentsInChildren<Selectable>().ToList();
+            // Remove all selectables that are not interactable.
+            selectables.RemoveAll(item => !item.interactable);
             // Set the default menu.
             _defaultSelectable = selectables[0].gameObject;
             _eventSystem.SetSelectedGameObject(_defaultSelectable);
             // Setup the navigation for each object.
-            if (selectables.Length < 2) return;
-            for (var i = 0; i < selectables.Length; i++)
+            if (selectables.Count < 2) return;
+            for (var i = 0; i < selectables.Count; i++)
             {
                 var navigation = selectables[i].navigation;
                 navigation.selectOnUp =
-                    i == 0 ? selectables[selectables.Length - 1] : selectables[i - 1];
-                navigation.selectOnDown = i == selectables.Length - 1 ? selectables[0] : selectables[i + 1];
+                    i == 0 ? selectables[selectables.Count - 1] : selectables[i - 1];
+                navigation.selectOnDown = i == selectables.Count - 1 ? selectables[0] : selectables[i + 1];
                 selectables[i].navigation = navigation;
             }
         }
