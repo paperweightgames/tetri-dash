@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levels:
   - level 1
-  - level 2
   _palettes:
   - {fileID: 21300000, guid: 77fb4ecb8cb728a448f356021a761b33, type: 3}
+  - {fileID: 21300000, guid: 7496505d26b0b4d48b66df82ee01e5ec, type: 3}
   _heads:
   - {fileID: 7726654730068558298, guid: f565b1bb09dcbe34d97dfe481c33fe5e, type: 3}
-  - {fileID: -2622396234733445472, guid: f565b1bb09dcbe34d97dfe481c33fe5e, type: 3}
   _highScores: []
   _timeSpent: 0
+  _activePalette: 0

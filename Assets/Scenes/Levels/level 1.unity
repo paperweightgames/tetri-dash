@@ -4304,7 +4304,6 @@ MonoBehaviour:
   _playerManager: {fileID: 839328877}
   _behavioursToEnable:
   - {fileID: 1311722859}
-  - {fileID: 0}
   - {fileID: 354739799}
   - {fileID: 1182169290}
   - {fileID: 1284331225}

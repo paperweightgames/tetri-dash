@@ -11,10 +11,26 @@ namespace SaveFile
         [SerializeField] private List<Sprite> _heads;
         [SerializeField] private List<HighScoreEntry> _highScores;
         [SerializeField] private float _timeSpent;
+        [SerializeField] private int _activePalette;
 
         public List<string> GetLevels()
         {
             return _levels;
+        }
+
+        public List<Sprite> GetPalettes()
+        {
+            return _palettes;
+        }
+
+        public int GetActivePalette()
+        {
+            return _activePalette;
+        }
+
+        public void SetActivePalette(int activePalette)
+        {
+            _activePalette = activePalette;
         }
 
         public void UnlockLevel(string levelName)
@@ -53,7 +69,7 @@ namespace SaveFile
             _highScores.Add(highScoreEntry);
         }
 
-        public List<HighScoreEntry> GetHighScores(string levelName)
+        public IEnumerable<HighScoreEntry> GetHighScores(string levelName)
         {
             return _highScores.FindAll(item => item.GetLevel() == levelName);
         }

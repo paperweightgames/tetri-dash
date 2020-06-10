@@ -58,3 +58,7 @@ Preset:
     propertyPath: _timeSpent
     value: 0
     objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _activePalette
+    value: 0
+    objectReference: {fileID: 0}
