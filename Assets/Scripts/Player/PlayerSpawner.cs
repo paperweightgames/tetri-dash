@@ -31,25 +31,41 @@ namespace Player
 
         private void Update()
         {
+            // Don't run if max number of players reached.
+            if (_playerCount >= _maxPlayers)
+                return;
+            UpdateController();
+            UpdateKeyboard();
+        }
+
+        private void UpdateController()
+        {
             // Spawn controller.
             foreach (var gamepad in Gamepad.all)
             {
                 // Ignore already used controllers.
-                if (_gamepads.Contains(gamepad)) continue;
-                if (!gamepad.buttonSouth.wasPressedThisFrame) continue;
+                if (_gamepads.Contains(gamepad))
+                    continue;
+                if (!gamepad.buttonSouth.wasPressedThisFrame)
+                    continue;
                 // Spawn new player.
                 _gamepads.Add(gamepad);
                 var player = SpawnPlayer(_controllerPrefab);
                 player.GetComponent<ControllerInput>().SetGamepad(gamepad);
                 _nameDisplay.UpdatePlayers();
             }
-            // Don't run if max number of players reached.
-            if (_playerCount >= _maxPlayers) return;
+        }
+
+        private void UpdateKeyboard()
+        {
             // Skip if no key was pressed.
-            if (!Keyboard.current.anyKey.wasPressedThisFrame) return;
+            if (!Keyboard.current.anyKey.wasPressedThisFrame)
+                return;
             var pressedKey = GetPressedKey();
             // Skip if the key is already used.
-            if (pressedKey == Key.None || _controls.Contains(pressedKey)) return;
+            if (pressedKey == Key.None || _controls.Contains(pressedKey))
+                return;
+            
             _controls[_currentKey] = pressedKey;
             IgnoreKey(pressedKey);
             
@@ -74,19 +90,15 @@ namespace Player
             }
             _inputDisplay.AdvancePrompt();
             _nameDisplay.UpdatePlayers();
+            
             _currentKey++;
-            if (_currentKey >= _controls.Length)
-            {
-                _currentKey = 0;
-            }
+            _currentKey %= _controls.Length;
         }
-
+        
         private void IgnoreKey(Key keyToIgnore)
         {
             if (!_keysToIgnore.Contains(keyToIgnore))
-            {
                 _keysToIgnore.Add(keyToIgnore);
-            }
         }
         
         private GameObject SpawnPlayer(GameObject playerPrefab)
@@ -103,9 +115,7 @@ namespace Player
             foreach (var key in Keyboard.current.allKeys)
             {
                 if (key.wasPressedThisFrame && !_keysToIgnore.Contains(key.keyCode))
-                {
                     return key.keyCode;
-                }
             }
 
             return Key.None;

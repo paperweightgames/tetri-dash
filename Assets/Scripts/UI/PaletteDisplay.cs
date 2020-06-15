@@ -24,8 +24,8 @@ namespace UI
         public void ChangeValue(int amount)
         {
             _activePalette += amount;
-            _activePalette %= _palettes.Count;
-            _valueText.text = _activePalette == 0 ? "default" : _palettes[_activePalette].name;
+            _activePalette = Mathf.Clamp(_activePalette, 0, _palettes.Count - 1);
+            _valueText.text = _palettes[_activePalette].name;
             UpdatePalette();
         }
 
@@ -40,6 +40,7 @@ namespace UI
             _saveFileManager = SaveFileManager.GetInstance();
             _palettes = _saveFileManager.GetActiveSaveFile().GetPalettes();
             _activePalette = _saveFileManager.GetActiveSaveFile().GetActivePalette();
+            UpdatePalette();
         }
 
         private void UpdatePalette()

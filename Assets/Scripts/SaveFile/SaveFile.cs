@@ -1,4 +1,5 @@
 ﻿﻿using System.Collections.Generic;
+ using System.Linq;
  using UnityEngine;
 
 namespace SaveFile
@@ -6,17 +7,10 @@ namespace SaveFile
     [CreateAssetMenu(fileName = "Save File", menuName = "ScriptableObjects/SaveFile", order = 0)]
     public class SaveFile : ScriptableObject
     {
-        [SerializeField] private List<string> _levels;
+        [SerializeField] private List<HighScoreData> _highScores;
         [SerializeField] private List<Sprite> _palettes;
         [SerializeField] private List<Sprite> _heads;
-        [SerializeField] private List<HighScoreEntry> _highScores;
-        [SerializeField] private float _timeSpent;
         [SerializeField] private int _activePalette;
-
-        public List<string> GetLevels()
-        {
-            return _levels;
-        }
 
         public List<Sprite> GetPalettes()
         {
@@ -33,30 +27,19 @@ namespace SaveFile
             _activePalette = activePalette;
         }
 
-        public void UnlockLevel(string levelName)
-        {
-            // Check if the level is already unlocked.
-            if (_levels.Contains(levelName)) return;
-            // Add the new level.
-            _levels.Add(levelName);
-        }
-
-        public bool IsLevelUnlocked(string levelName)
-        {
-            return _levels.Contains(levelName);
-        }
-
         public List<Sprite> GetHeads()
         {
             return _heads;
         }
 
-        public void UnlockHead(Sprite newHead)
+        public bool UnlockHead(Sprite newHead)
         {
             // Check if the head is already unlocked.
-            if (_heads.Contains(newHead)) return;
+            if (_heads.Contains(newHead))
+                return false;
             // Add the new head.
             _heads.Add(newHead);
+            return true;
         }
 
         public bool IsHeadUnlocked(Sprite head)
@@ -64,14 +47,18 @@ namespace SaveFile
             return _heads.Contains(head);
         }
 
-        public void AddHighScore(HighScoreEntry highScoreEntry)
+        public IEnumerable<HighScoreData> GetHighScores()
         {
-            _highScores.Add(highScoreEntry);
+            return _highScores;
         }
 
-        public IEnumerable<HighScoreEntry> GetHighScores(string levelName)
+        public void AddHighScore(HighScoreData newHighScore)
         {
-            return _highScores.FindAll(item => item.GetLevel() == levelName);
+            _highScores.Add(newHighScore);
+            // Sort by score.
+            _highScores.Sort((x, y) => y.GetScore().CompareTo(x.GetScore()));
+            // Remove duplicates.
+            _highScores = _highScores.GroupBy(x => x.GetName()).Select(x => x.First()).ToList();
         }
     }
 }

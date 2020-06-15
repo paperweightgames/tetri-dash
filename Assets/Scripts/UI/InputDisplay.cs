@@ -23,10 +23,7 @@ namespace UI
         public void AdvancePrompt()
         {
             _currentPrompt++;
-            if (_currentPrompt >= _prompts.Length)
-            {
-                _currentPrompt = 0;
-            }
+            _currentPrompt %= _prompts.Length;
             UpdatePrompt();
         }
     }

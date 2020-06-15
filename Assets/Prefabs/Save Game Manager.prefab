@@ -45,6 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _saveFiles:
   - {fileID: 11400000, guid: 6d8072d1d71f00a48b20a2a895af95a9, type: 2}
-  - {fileID: 11400000, guid: ba291ca9859f8354cb80e4fe901d64fd, type: 2}
-  - {fileID: 11400000, guid: 91089a0d5402cdf4999e8be1a4f45df7, type: 2}
   _activeSaveFile: 0

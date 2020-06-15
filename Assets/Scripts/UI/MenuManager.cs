@@ -7,13 +7,14 @@ namespace Ui
 {
     public class MenuManager : MonoBehaviour
     {
+        [SerializeField] private GameObject _startPanel;
         [SerializeField] private GameObject _activePanel;
         [SerializeField] private EventSystem _eventSystem;
         private GameObject _defaultSelectable;
 
-        private void Start()
+        private void OnEnable()
         {
-            SwitchPanel(_activePanel);
+            SwitchPanel(_startPanel);
         }
 
         // A function for switching between panels.
@@ -41,19 +42,21 @@ namespace Ui
             // Focus on the first selectable.
             _eventSystem.SetSelectedGameObject(_defaultSelectable);
             // Skip the setup if the panel has only one selectable.
-            if (selectables.Count <= 1) return;
+            if (selectables.Count <= 1)
+                return;
             // Setup the navigation for each object.
             for (var i = 0; i < selectables.Count; i++)
             {
-                var navigation = new Navigation
+                var nav = new Navigation
                 {
+                    mode = Navigation.Mode.Explicit,
                     // Set the up selectable to the previous one in the list, and if at top, set it to the bottom one.
                     selectOnUp = i == 0 ? selectables[selectables.Count - 1] : selectables[i - 1],
                     // Set the down selectable to the next one in the list, and if at bottom, set it to the first one.
-                    selectOnDown = i == selectables.Count - 1 ? selectables[0] : selectables[i + 1]
+                    selectOnDown = i == selectables.Count - 1 ? selectables[0] : selectables[i + 1],
                 };
                 // Assign the new navigation to the selectable.
-                selectables[i].navigation = navigation;
+                selectables[i].navigation = nav;
             }
         }
 

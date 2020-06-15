@@ -34,7 +34,8 @@ namespace Player
             // Check for live players.
             foreach (var player in _players)
             {
-                if (player.activeSelf) return;
+                if (player.activeSelf)
+                    return;
             }
             // Check for game over.
             _restartCanvas.SetActive(true);

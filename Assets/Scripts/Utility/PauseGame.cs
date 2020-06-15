@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Utility
@@ -8,6 +9,8 @@ namespace Utility
         [SerializeField] private InputActionReference _pauseAction;
         [SerializeField] private GameObject _pauseUi;
         [SerializeField] private GameObject _cursorUi;
+        [SerializeField] private PlayerSpawner _playerSpawner;
+        [SerializeField] private GameStarter _gameStarter;
         private bool _isPaused;
 
         private void Awake()
@@ -42,6 +45,8 @@ namespace Utility
             Time.timeScale = _isPaused ? 0 : 1;
             _pauseUi.SetActive(_isPaused);
             _cursorUi.SetActive(_isPaused);
+            _playerSpawner.enabled = !_isPaused;
+            _gameStarter.enabled = !_isPaused;
         }
     }
 }
