@@ -7,12 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1571869381066166168, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1690544179877771175, guid: 8ba6082819551ad4ca3025c2a28445b7,
         type: 3}
       propertyPath: m_Text
       value: pause
       objectReference: {fileID: 0}
     - target: {fileID: 1690544181006961126, guid: 8ba6082819551ad4ca3025c2a28445b7,
+        type: 3}
+      propertyPath: m_Text
+      value: pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690544181864124267, guid: 8ba6082819551ad4ca3025c2a28445b7,
         type: 3}
       propertyPath: m_Text
       value: pause

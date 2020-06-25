@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using SaveFile;
+﻿using System.Collections.Generic;
+using Palette;
+using Saving;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +10,9 @@ namespace UI
     {
         [SerializeField] private Material _paletteMaterial;
         [SerializeField] private Text _valueText;
-        private SaveFileManager _saveFileManager;
-        private List<Sprite> _palettes;
-        private int _activePalette;
+        [SerializeField] private PaletteObject _paletteObject;
+        private List<int> _palettes;
+        private int _currentPalette;
         private static readonly int PaletteTex = Shader.PropertyToID("_PaletteTex");
 
         private void OnEnable()
@@ -23,29 +23,33 @@ namespace UI
 
         public void ChangeValue(int amount)
         {
-            _activePalette += amount;
-            _activePalette = Mathf.Clamp(_activePalette, 0, _palettes.Count - 1);
-            _valueText.text = _palettes[_activePalette].name;
+            _currentPalette += amount;
+            _currentPalette %= _palettes.Count;
+            var paletteIndex = _palettes[_currentPalette];
+            _valueText.text = _paletteObject.GetPalette(paletteIndex).name;
             UpdatePalette();
         }
 
         public void SavePalette()
         {
-            _saveFileManager.GetActiveSaveFile().SetActivePalette(_activePalette);
+            SaveLoad.GameSave.SetActivePalette(_currentPalette);
             UpdatePalette();
+            SaveLoad.Save();
         }
 
         public void Revert()
         {
-            _saveFileManager = SaveFileManager.GetInstance();
-            _palettes = _saveFileManager.GetActiveSaveFile().GetPalettes();
-            _activePalette = _saveFileManager.GetActiveSaveFile().GetActivePalette();
+            SaveLoad.Load();
+            var saveGame = SaveLoad.GameSave;
+            _palettes = saveGame.GetPalettes();
+            _currentPalette = saveGame.GetActivePalette();
             UpdatePalette();
         }
 
         private void UpdatePalette()
         {
-            var activeTexture = _palettes[_activePalette].texture;
+            var paletteIndex = _palettes[_currentPalette];
+            var activeTexture = _paletteObject.GetPalette(paletteIndex).texture;
             _paletteMaterial.SetTexture(PaletteTex, activeTexture);
         }
     }

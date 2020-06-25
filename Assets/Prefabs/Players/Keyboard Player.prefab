@@ -5283,15 +5283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6332bcf1a884b83839a094a33314a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heads:
-  - {fileID: 4851186948604344007, guid: f565b1bb09dcbe34d97dfe481c33fe5e, type: 3}
-  - {fileID: -164110121215781008, guid: f565b1bb09dcbe34d97dfe481c33fe5e, type: 3}
-  - {fileID: 7220224053832809486, guid: f565b1bb09dcbe34d97dfe481c33fe5e, type: 3}
-  - {fileID: 7726654730068558298, guid: f565b1bb09dcbe34d97dfe481c33fe5e, type: 3}
-  - {fileID: -1602375313756881929, guid: f565b1bb09dcbe34d97dfe481c33fe5e, type: 3}
-  - {fileID: 6796979384619623882, guid: f565b1bb09dcbe34d97dfe481c33fe5e, type: 3}
-  - {fileID: 8881707587385767823, guid: f565b1bb09dcbe34d97dfe481c33fe5e, type: 3}
-  - {fileID: -2622396234733445472, guid: f565b1bb09dcbe34d97dfe481c33fe5e, type: 3}
+  _headObject: {fileID: 11400000, guid: 646d1d51b691cc1429794751f1565cb7, type: 2}
 --- !u!1 &7794261699465066667
 GameObject:
   m_ObjectHideFlags: 0

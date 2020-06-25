@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using SaveFile;
+﻿using System.Collections.Generic;
+using Saving;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,14 +7,15 @@ namespace Player
 {
     public class PlayerHead : MonoBehaviour
     {
-        [SerializeField] private List<Sprite> _heads;
+        [SerializeField] private HeadObject _headObject;
+        private List<int> _heads;
         private SpriteRenderer _spriteRenderer;
         private int _currentHead;
 
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            _heads = SaveFileManager.GetInstance().GetActiveSaveFile().GetHeads();
+            _heads = SaveLoad.GameSave.GetHeads();
         }
 
         private void Start()
@@ -31,17 +31,14 @@ namespace Player
 
         private void UpdateHead()
         {
-            var randomHead = _heads[_currentHead];
-            _spriteRenderer.sprite = randomHead;
+            var headIndex = _heads[_currentHead];
+            _spriteRenderer.sprite = _headObject.GetHead(headIndex);
         }
 
         public void NextHead()
         {
             _currentHead++;
-            if (_currentHead >= _heads.Count)
-            {
-                _currentHead = 0;
-            }
+            _currentHead %= _heads.Count;
             UpdateHead();
         }
     }

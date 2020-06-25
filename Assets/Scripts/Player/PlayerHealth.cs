@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Utility;
 
 namespace Player
 {
@@ -11,10 +12,12 @@ namespace Player
         [SerializeField] private ParticleSystem _hurtParticles;
         private float _timeSinceHurt;
         private PlayerManager _playerManager;
+        private ScreenShake _screenShake;
 
         private void Awake()
         {
             _playerManager = GetComponentInParent<PlayerManager>();
+            _screenShake = FindObjectOfType<ScreenShake>();
         }
 
         public int GetCurrentHealth()
@@ -50,9 +53,11 @@ namespace Player
         public void Hurt(int amount)
         {
             // Only hurt once invincibility runs out.
-            if (_timeSinceHurt <= _invincibilityTime) return;
+            if (_timeSinceHurt <= _invincibilityTime)
+                return;
             _timeSinceHurt = 0;
             _hurtParticles.Play();
+            _screenShake.SetDuration(1);
             ChangeHealth(-amount);
         }
 

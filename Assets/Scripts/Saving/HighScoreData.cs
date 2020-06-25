@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace SaveFile
+namespace Saving
 {
     [Serializable]
     public class HighScoreData
