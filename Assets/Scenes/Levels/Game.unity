@@ -372,7 +372,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1266607374598945668, guid: ab8fca5c18cda474dafe5681e72f2c03, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab8fca5c18cda474dafe5681e72f2c03, type: 3}
 --- !u!1001 &119020425
 PrefabInstance:
@@ -5298,7 +5299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329305885b9b4866a5647cf1e62a28d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shakeDuration: 0
+  _duration: 0
   _intensity: 0.5
   _dropoff:
     serializedVersion: 2
