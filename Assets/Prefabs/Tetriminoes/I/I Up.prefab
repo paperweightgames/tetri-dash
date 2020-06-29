@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 487049663822282945}
   - component: {fileID: 4384459651109490659}
   m_Layer: 8
-  m_Name: I Up Smooth
+  m_Name: I Up
   m_TagString: Tetriminoe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 2712965723530409554}
   m_Layer: 0
   m_Name: Fall Check
-  m_TagString: Untagged
+  m_TagString: Tetriminoe Fall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

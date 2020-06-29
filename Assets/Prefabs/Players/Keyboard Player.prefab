@@ -70,7 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500baec0301e4724c90361f7dbe48fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 3101726948147708752}
 --- !u!1 &2777106953908812984
 GameObject:
   m_ObjectHideFlags: 0
@@ -5387,9 +5386,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b24d264da2b448e8b8aa1a53cfb8c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.3
+  _speed: 0.2
   _offset: -0.05
-  _capeLength: 4
+  _capeLength: 6
   _player: {fileID: 3101726948147708752}
   _capePrefab: {fileID: 1538323777425835661, guid: ae31cbaf5c6c8ba44acf91dc36929c58,
     type: 3}

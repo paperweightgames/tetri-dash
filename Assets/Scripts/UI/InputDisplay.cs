@@ -20,10 +20,10 @@ namespace UI
             _text.text = _prompts[_currentPrompt];
         }
 
-        public void AdvancePrompt()
+        public void AdvancePrompt(int amount)
         {
-            _currentPrompt++;
-            _currentPrompt %= _prompts.Length;
+            _currentPrompt += amount;
+            _currentPrompt = (int)Mathf.Repeat(_currentPrompt, _prompts.Length);
             UpdatePrompt();
         }
     }

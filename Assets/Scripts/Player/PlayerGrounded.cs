@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player
 {
     public class PlayerGrounded : MonoBehaviour
     {
-        [SerializeField] private Transform _player;
-        private Transform _parent;
-        private List<Collider2D> _colliders = new List<Collider2D>();
-
-        private void Start()
-        {
-            _parent = _player.parent;
-        }
+        private readonly List<Collider2D> _colliders = new List<Collider2D>();
 
         private void FixedUpdate()
         {
@@ -22,19 +14,27 @@ namespace Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.isTrigger) return;
-            if (other.CompareTag("Player")) return;
-            if (!other.CompareTag("Tetriminoe")) return;
-            if (_colliders.Contains(other)) return;
+            if (other.isTrigger)
+                return;
+            if (other.CompareTag("Player"))
+                return;
+            if (!other.CompareTag("Tetriminoe"))
+                return;
+            if (_colliders.Contains(other))
+                return;
             _colliders.Add(other);
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.isTrigger) return;
-            if (other.CompareTag("Player")) return;
-            if (!other.CompareTag("Tetriminoe")) return;
-            if (!_colliders.Contains(other)) return;
+            if (other.isTrigger)
+                return;
+            if (other.CompareTag("Player"))
+                return;
+            if (!other.CompareTag("Tetriminoe"))
+                return;
+            if (!_colliders.Contains(other))
+                return;
             _colliders.Remove(other);
         }
 

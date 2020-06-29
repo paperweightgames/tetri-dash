@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Player.Input;
 using UI;
@@ -10,6 +11,7 @@ namespace Player
 {
     public class PlayerSpawner : MonoBehaviour
     {
+        [SerializeField] private InputActionReference _undoKey;
         [SerializeField] private int _maxPlayers;
         [SerializeField] private float _spawnXBound;
         [SerializeField] private List<Key> _keysToIgnore;
@@ -24,9 +26,27 @@ namespace Player
         private KeyboardInput _activeKeyboardInput;
         private PlayerManager _playerManager;
 
+        private void OnEnable()
+        {
+            _undoKey.action.Enable();
+        }
+
+        private void OnDisable()
+        {
+            _undoKey.action.Disable();
+        }
+
         private void Awake()
         {
             _playerManager = GetComponent<PlayerManager>();
+            _undoKey.action.performed += OnUndo;
+        }
+
+        private void OnUndo(InputAction.CallbackContext obj)
+        {
+            _inputDisplay.AdvancePrompt(-1);
+            _controls[_currentKey] = Key.None;
+            _currentKey--;
         }
 
         private void Update()
@@ -72,7 +92,7 @@ namespace Player
             switch (_currentKey)
             {
                 // Once the jump key is pressed, create a new player.
-                case 0 when !_activeKeyboardInput:
+                case 0:
                     var player = SpawnPlayer(_keyboardPrefab);
                     _activeKeyboardInput = player.GetComponent<KeyboardInput>();
                     _activeKeyboardInput.SetJumpKey(_controls[0]);
@@ -88,7 +108,7 @@ namespace Player
                     _playerCount++;
                     break;
             }
-            _inputDisplay.AdvancePrompt();
+            _inputDisplay.AdvancePrompt(1);
             _nameDisplay.UpdatePlayers();
             
             _currentKey++;
